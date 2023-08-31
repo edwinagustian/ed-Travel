@@ -14,6 +14,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Travel web</title>
 
+    <style>
+        .alert {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body style="overflow: hidden;">
@@ -33,6 +46,8 @@
 
             <div id="menu-btn" class="fas fa-bars"></div>
 
+
+
         </section>
     </header>
     <!-- header section end -->
@@ -43,14 +58,38 @@
             <form action="" method="post">
                 <h3>search your tour</h3>
                 <p>where to</p>
-                <input type="text" name="location" class="box" required maxlength="50"
+                <input type="text" id='location' name="location" class="box" required maxlength="50"
                     placeholder="enter tour location">
                 <p>when to</p>
-                <input type="date" name="date" class="box">
+                <input type="date" id="date" name="date" class="box">
                 <p>How Many</p>
-                <input type="number" name="guests" min="1" max="10" maxlength="2" placeholder="number of guests"
-                    required class="box">
-                <input type="submit" value="search tour" name="search" class="btn">
+                <input type="number" id="guests" name="guests" min="1" max="10" maxlength="2"
+                    placeholder="number of guests" required class="box">
+                <input type="submit" value="search tour" name="search" class="btn" onclick="klik()">
+
+                <!-- Js script start -->
+                <script class="alert">
+                    function klik() {
+                        const location = document.getElementById('location').value;
+                        const date = document.getElementById('date').value;
+                        const guests = document.getElementById('guests').value;
+
+                        if (location === '' || date === '' || guests === '') {
+                            const alertMessage = document.createElement('div');
+                            alertMessage.innerText = 'Silakan isi semua kolom terlebih dahulu.';
+                            alertMessage.classList.add('alert');
+                            document.body.insertBefore(alertMessage, document.body.firstChild);
+                            return false;
+                        } else {
+                            alert('DATA TELAH DI INPUT')
+                            alert('TERIMAKSIH TELAH MENGGUNKAN ED-TRAVEL. SEMOGA LIBURAN ANDA MENYRNGKAN');
+                            return true;
+                        }
+                    }
+
+                </script>
+                <!-- Js script end  -->
+
             </form>
         </section>
     </div>
